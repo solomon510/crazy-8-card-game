@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: green;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: green;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-name {
+    font-family: cursive;
+    color: white;
+    font-size: 7rem;
+    margin-bottom: 40px;
+    text-shadow: 1.5px 0 red;
+}
+
+@media (max-width:800px) {
+    .profile {
+        transform: translate(0, -50%);
+        left: 15%;
+    }
+
+    .game-name {
+        font-size: 5.2rem;
+    }
+}
+
+button {
+    border: 1.5px solid rgb(92, 191, 234);
+    outline: none;
+    background: linear-gradient(to bottom, rgb(92, 191, 234), rgb(53, 176, 224), rgb(92, 191, 234));
+    border-radius: 12px;
+    align-self: center;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background: transparent;
+    color: rgb(92, 191, 234);
+}
+
+.creater-name {
+    font-family: cursive;
+    color: white;
+    text-shadow: 1.5px 0 black;
+    font-size: 1.6rem;
+    margin-top: 50px;
+    align-self: center;
+
+}
+
+.my-name {
+    font-family: monospace;
+    position: relative;
+    color: #fc96fc;
+}
+
+.my-name::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    background-color: green;
+    animation: blink 6s steps(16) infinite;
+    border-left: 1px solid rgb(161, 156, 156);
+}
+
+@keyframes blink {
+    to {
+        left: 100%;
+    }
+}
+
+.dec {
+    display: flex;
+    align-items: center;
+    gap: 33%;
+    margin: 30px 32px;
+}
+
+.dec-img {
+    cursor: pointer;
+}
+
+.player-turn {
+    font-family: cursive;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 1.2px 0 red;
+    padding-right: 20px;
+}
+
+@media (max-width:800px) {
+    .dec {
+        gap: 15%;
+    }
+}
+
+.bounce:active {
+    transform: scale(1.05);
+}
+
+.play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.card-container {
+    display: flex;
+    gap: 10px;
+    margin: 50px 32px;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 100px;
+}
+
+.player1-img {
+    cursor: pointer;
+}
+
+.player1-img:hover {
+    transform: scale(1.2);
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 350px;
+    box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.15);
+    background-color: rgb(8, 185, 99);
+    z-index: 100;
+}
+
+.crossBtn {
+    padding: 8px 10px;
+    font-size: 1.5rem;
+    color: white;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.whoWon {
+    font-family: cursive;
+    align-self: center;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 1px 0 blue;
+}
+
+@media (max-width:800px) {
+    .dialog {
+        left: 50%;
+        top: 27%;
+        width: 90%;
+        height: 60%;
+        padding: 20px;
+    }
+
+    .whoWon {
+        font-size: 2.5rem;
+    }
+
+    .creater-name {
+        font-size: 1rem;
+    }
+
+    .player1-img:hover {
+        transform: scale(1);
+    }
+}
+
+/* js */
+.disappear {
+    display: none;
+}
+
+.fall {
+    animation: fall 0.5s forwards;
+}
+
+@keyframes fall {
+    100% {
+        transform: translate(0, -160px) scale(0.5);
+        opacity: 0;
+    }
+}
